@@ -7,7 +7,7 @@
     <data>
         <variable
                 name="vm"
-                type="com.starter.project.main.model.MainViewModel" />
+                type="com.starter.project.main.model.MainActivityViewModel" />
 
     </data>
 
