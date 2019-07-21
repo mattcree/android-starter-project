@@ -4,5 +4,5 @@ import javax.inject.Inject
 
 class MainService @Inject constructor() {
 
-    fun getWord() = "new"
+    fun newWord() = "new"
 }

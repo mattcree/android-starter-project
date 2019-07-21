@@ -7,17 +7,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    private val wordUpService: MainService
+    private val mainService: MainService
 ) : ViewModel() {
 
     val word = ObservableField("old")
 
     fun nextWord() = GlobalScope.launch(Dispatchers.IO) {
-        setNewWord(wordUpService.getWord())
+        setNewWord(mainService.newWord())
     }
 
     private suspend fun setNewWord(newWord: String) = withContext(Dispatchers.Main) {
