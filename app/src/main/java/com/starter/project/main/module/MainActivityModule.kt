@@ -13,14 +13,14 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module(includes = [
-    MainActivityModule.MainActivityViewModelModule::class
+    MainActivityModule.ProviderModule::class
 ])
 abstract class MainActivityModule {
-    @ContributesAndroidInjector(modules = [MainActivityProvidesModule::class])
+    @ContributesAndroidInjector(modules = [InjectorModule::class])
     abstract fun injectMainActivity(): MainActivity
 
     @Module
-    class MainActivityViewModelModule {
+    class ProviderModule {
 
         @Provides
         @IntoMap
@@ -29,7 +29,7 @@ abstract class MainActivityModule {
     }
 
     @Module
-    class MainActivityProvidesModule {
+    class InjectorModule {
 
         @Provides
         fun provideMainViewModel(

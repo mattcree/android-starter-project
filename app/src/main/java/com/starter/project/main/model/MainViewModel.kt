@@ -17,12 +17,7 @@ class MainViewModel @Inject constructor(
     val word = ObservableField("old")
 
     fun nextWord() = GlobalScope.launch(Dispatchers.IO) {
-        try {
-            val newWord = wordUpService.getWord()
-            setNewWord(newWord)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        setNewWord(wordUpService.getWord())
     }
 
     private suspend fun setNewWord(newWord: String) = withContext(Dispatchers.Main) {
